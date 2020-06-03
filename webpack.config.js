@@ -8,6 +8,19 @@ module.exports = {
         filename: 'scripts.js'
       }, // 出口文件
       
-    // module: {},
+    module: {
+        rules: [{
+            test: /\.css$/,
+            use: [{
+                    loader: 'style-loader' //(順序2)
+                },
+                {
+                    loader: 'css-loader', //(順序1)
+                    options: {
+                        modules: true
+                    }
+                }]
+        }]
+    },
     // plugins: []
    };
